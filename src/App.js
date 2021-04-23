@@ -3,23 +3,21 @@ import React from "react";
 // import { Route, BrowserRouter as Router, useHistory, useRouteMatch } from 'react-router-dom';
 import { Route, Link } from 'react-router-dom';
 import Order from './components/Order';
-// import App from "./App";
+import Home from "./components/Home";
 
+const showHome = true;
+
+// const noHome() => {showHome = false};
 const App = () => {
 
-  
   return (
   
-    <><header class="app-header">
-        <h1>Lambda Eats</h1>
-        <p>You can remove this code and create your own header</p>
-        <Link to="/order">
-          <div><button>Pizza?</button></div>
-        </Link>
-
-      </header>
-
-
+    <>
+    {/* <div>
+      {showHome && <Home />}
+    </div> */}
+      
+      <Route exact path="/" component={Home}/>
       <Route path="/order" component={Order}/>
 
     </>
