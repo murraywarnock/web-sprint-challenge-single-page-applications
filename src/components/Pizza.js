@@ -1,22 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useHistory } from 'react';
 
 export default function Pizza(props)  {
 
     const { values, disabled, change, submit, errors } = props;
 
+
     const onSubmit = (evt) => {
         evt.preventDefault();
         submit();
+        // const history = useHistory();
+        // history.push('/success');
       };
     
-      const onChange = (evt) => {
-        /* 🔥 FIX THIS SO IT ALSO WORKS WITH CHECKBOXES */
-        const { name, value, checked, type } = evt.target;
-        const valueToUse = (type === "checkbox" ? checked : value);
-        change(name, valueToUse);
-      };
+    const onChange = (evt) => {
+    /* 🔥 FIX THIS SO IT ALSO WORKS WITH CHECKBOXES */
+    const { name, value, checked, type } = evt.target;
+    const valueToUse = (type === "checkbox" ? checked : value);
+    change(name, valueToUse);
+    };
     
 
     return (

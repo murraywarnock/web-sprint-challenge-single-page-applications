@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useHistory } from "react";
 // import ReactDOM from "react-dom";
 // import { Route, BrowserRouter as Router, useHistory, useRouteMatch } from 'react-router-dom';
 import { Route, Link } from 'react-router-dom';
@@ -33,22 +33,18 @@ const App = () => {
   // 
   const postNewPizza = (newPizza) => {
     console.log("Post newPizza order:", newPizza);
-    //    POST] `newPizza` to `https://reqres.in/api/users`
-    // axios
-    //   .post("https://reqres.in/api/users", newUser)
-    //   .then((res) => {
-    //     console.log("Post response:", res)
-    //     // debugger;
-    // //    add new user to state
-    //     setPizza([res.data, ...users]);
-    // //    reset form
-    //     setFormValues(initialFormValues);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     debugger;
-    //   });
-  };
+    //    POST] `newPizza` to `https://reqres.in/api/orders`
+    axios
+      .post("https://reqres.in/api/orders", newPizza)
+      .then((res) => {
+        console.log("Post response:", res)
+      })
+      .catch((err) => {
+        console.log(err);
+        debugger;
+      })
+    };
+
 
   const inputChange = (name, value) => {
        // RUN VALIDATION WITH YUP
@@ -93,8 +89,10 @@ const App = () => {
     // 🔥 STEP 8- POST NEW USER USING HELPER
     postNewPizza(newPizza);
     // if postNewPizz successful, change URL to /success
+    // useHistory().push('/success');
+
   };
-  
+
   useEffect(() => {
     // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
     schema.isValid(formValues).then((valid) => {
