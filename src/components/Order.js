@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// showHome = false;
-
 export default function Order()  {
 
     return (
