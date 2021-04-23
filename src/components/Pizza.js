@@ -22,7 +22,7 @@ export default function Pizza(props)  {
 
     return (
         <>
-        <form action="" className="pizza-form">
+        <form action="" id="pizza-form">
             <label>
             Name:&nbsp;
                 <input
